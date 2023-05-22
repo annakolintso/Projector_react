@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Poppins:wght@400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  padding: 19px 0;
+  background-color: #083644;
+}
+.header__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__actions {
+  display: flex;
+  align-items: center;
+}
+.header__actions .header__icon:not(:last-child) {
+  margin-right: 18px;
+}
+.header__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@media (hover: hover) {
+  .header__icon_fav:hover path, .header__icon_folder:hover path {
+    fill: #fff;
+  }
+}
+.header__icon_back {
+  background-image: url(../../src/images/icons/ic-arrow-left.svg);
+}
+.header__back {
+  font-family: "Poppins";
+  font-size: 18px;
+  line-height: 27px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.header__back .header__icon {
+  margin-right: 6px;
+}
+
+.main {
+  padding-bottom: 36px;
+}
+
+.filter {
+  padding: 16px 0 18px;
+}
+.filter__form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.filter__form > * {
+  flex: 1;
+}
+.filter__block {
+  position: relative;
+}
+.filter__block .is-focused .choices__inner,
+.filter__block .is-open .choices__inner,
+.filter__block .is-open .choices__list--dropdown,
+.filter__block .is-open .choices__list[aria-expanded] {
+  border-color: #0A2530;
+}
+.filter__block input:focus {
+  border-color: #0A2530;
+}
+.filter__block input, .filter__block .choices__inner {
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  line-height: 20px;
+  color: #6C7072;
+  border-radius: 4px;
+  border: 1px solid #EDEEF0;
+  padding: 10px 13px !important;
+  background-color: transparent;
+  width: 100%;
+}
+.filter__block .error-block {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  line-height: 14px;
+  color: #ff0000;
+  display: none;
+}
+.filter__block.error .error-block {
+  display: block;
+}
+
+.list-items {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.pagination__item {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 14px;
+  color: #738286;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 4px;
+}
+.pagination__item.active {
+  background-color: #0A2530;
+  color: #fff;
+  transition: opacity 0.3s;
+}
+.pagination__item.active:hover {
+  opacity: 0.8;
+}
+
+.list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.item-block {
+  width: calc(25% - 18px);
+}
+.item-block__image {
+  position: relative;
+  margin-bottom: 8px;
+}
+.item-block__image picture, .item-block__image img {
+  width: 100%;
+}
+.item-block__fav {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.item-block__fav.active path {
+  fill: #000;
+}
+@media (hover: hover) {
+  .item-block__fav:hover path {
+    fill: #000;
+  }
+}
+.item-block__name {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #0A2530;
+  margin-bottom: 3px;
+}
+.item-block__group {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #0A2530;
+  margin-bottom: 7px;
+}
+.item-block__info {
+  margin-bottom: 11px;
+}
+.item-block__info p {
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  line-height: 18px;
+  color: #738286;
+}
+.item-block__info p:not(:last-child) {
+  margin-bottom: 3px;
+}
+.item-block__info p span {
+  color: #0A2530;
+}
+.item-block .btn {
+  width: 100%;
+}
+
+.btn {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn-green {
+  background-color: #083644;
+}
+.btn-blue {
+  background-color: #0A2530;
+}
+.btn-add span {
+  position: relative;
+  padding-right: 26px;
+}
+.btn-add span::before {
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-image: url(../../src/images/icons/ic-plus.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.choices__list, .choices__list--single {
+  padding: 0 !important;
+}
+.choices__list--dropdown .choices__list::-webkit-scrollbar {
+  width: 6px;
+}
+.choices__list--dropdown .choices__list::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+.choices__list--dropdown .choices__list::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(90deg, transparent 80%, #0A2530 80%, #0A2530 100%);
+  outline: none;
+}
+.choices__list--dropdown .choices__item {
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  line-height: 20px;
+  color: #6C7072;
+  white-space: nowrap;
+}
+.choices[data-type*=select-one]::after {
+  border: none !important;
+  width: 24px !important;
+  height: 24px !important;
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  background-image: url(../../src/images/icons/ic-arrow-down.svg);
+  transform: translateY(-50%);
+}
+.choices[data-type*=select-one].is-open::after {
+  margin-top: 0 !important;
+  transform: translateY(-50%) rotate(-180deg);
+}
+
+@media screen and (max-width: 768px) {
+  .list-items {
+    gap: 16px;
+  }
+
+  .item-block {
+    width: calc(33% - 9px);
+  }
+}
+@media screen and (max-width: 640px) {
+  .filter__form > * {
+    flex: none;
+  }
+  .filter__form .btn {
+    width: 100%;
+  }
+  .filter__block_artist, .filter__block_country {
+    width: 100%;
+  }
+  .filter__block_genre, .filter__block_decade {
+    width: calc(50% - 6px);
+  }
+
+  .list-items {
+    gap: 12px;
+  }
+
+  .item-block {
+    width: calc(50% - 6px);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

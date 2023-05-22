@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projector test</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+        <link rel="stylesheet" href="./build/css/index.css"/>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header__wrap">
+                    <a href="#" class="header__back" id="headerBack">
+                        <span class="header__icon header__icon_back"></span>
+                        Back</a>
+                    <div class="header__actions">
+                        <a href="#" class="header__icon header__icon_fav">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 6.32647C19 11.4974 10 17 10 17C10 17 1 11.4974 1 6.32647C1 -0.694364 10 -0.599555 10 5.57947C10 -0.599555 19 -0.507124 19 6.32647Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="header__icon header__icon_folder">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 15.2222V6.33333C19 5.86184 18.8104 5.40965 18.4728 5.07625C18.1352 4.74286 17.6774 4.55556 17.2 4.55556H11.1124C10.7781 4.55554 10.4503 4.46356 10.1659 4.28992C9.88155 4.11628 9.65175 3.86783 9.5023 3.57244L8.6977 1.98311C8.54818 1.68759 8.31824 1.43906 8.03368 1.2654C7.74912 1.09175 7.4212 0.999846 7.0867 1H2.8C2.32261 1 1.86477 1.1873 1.52721 1.5207C1.18964 1.8541 1 2.30628 1 2.77778V15.2222C1 15.6937 1.18964 16.1459 1.52721 16.4793C1.86477 16.8127 2.32261 17 2.8 17H17.2C17.6774 17 18.1352 16.8127 18.4728 16.4793C18.8104 16.1459 19 15.6937 19 15.2222Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="container">
+                <div class="filter">
+                    <form class="filter__form">
+                        <label class="filter__block filter__block_artist">
+                            <input type="text" name="artist" placeholder="Artist" id="filterArtist">
+                            <p class="error-block">Value must be less than 20 characters</p>
+                        </label>
+                        <label class="filter__block filter__block_genre">
+                            <select name="genre" id="filterGenre">
+                                <option value="0" selected disabled>Genre</option>
+                                <option value="punk">Punk</option>
+                                <option value="dub">Dub</option>
+                                <option value="funk">Funk</option>
+                            </select>
+                        </label>
+                        <label class="filter__block filter__block_decade">
+                            <select name="decade" id="filterDecade">
+                                <option value="0" selected disabled>Decade</option>
+                                <option value="50-60">1950-60 pp.</option>
+                                <option value="60-70">1960-70 pp.</option>
+                                <option value="70-80">1970-80 pp.</option>
+                                <option value="80-90">1980-90 pp.</option>
+                                <option value="90-00">1990-00 pp.</option>
+                                <option value="00-10">2000-10 pp.</option>
+                                <option value="10-20">2010-20 pp.</option>
+                                <option value="20-30">2020-30 pp.</option>
+                            </select>
+                        </label>
+                        <label class="filter__block filter__block_country">
+                            <select name="country" id="filterCountry">
+                                <option value="0" selected disabled>Country</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="germany">Germany</option>
+                            </select>
+                        </label>
+                        <button class="btn btn-green" id="searchButton">Search</button>
+                    </form>
+                </div>
+                <div class="list-items" id="listItems"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+        <script src="src/data.js"></script>
+        <script src="src/index.js"></script>
+    </body>
+</html>

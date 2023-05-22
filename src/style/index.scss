@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Poppins:wght@400;500&display=swap');
+@import "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  $header: &;
+  padding: 19px 0;
+  background-color: $dark-green;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    #{$header}__icon {
+      &:not(:last-child) {
+        margin-right: 18px;
+      }
+    }
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &_fav, &_folder {
+      @media (hover: hover) {
+        &:hover {
+          path {
+            fill: $white;
+          }
+        }
+      }
+    }
+    &_back {
+      background-image: url(../images/icons/ic-arrow-left.svg);
+    }
+  }
+  &__back {
+    font-family: "Poppins";
+    font-size: 18px;
+    line-height: 27px;
+    color: $white;
+    display: flex;
+    align-items: center;
+
+    #{$header}__icon {
+      margin-right: 6px;
+    }
+  }
+}
+
+.main {
+  padding-bottom: 36px;
+}
+
+.filter {
+  padding: 16px 0 18px;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    & > * {
+      flex: 1;
+    }
+  }
+
+  &__block {
+    position: relative;
+    .is-focused .choices__inner,
+    .is-open .choices__inner,
+    .is-open .choices__list--dropdown,
+    .is-open .choices__list[aria-expanded]{
+      border-color: $dark-blue;
+    }
+    input {
+      &:focus {
+        border-color: $dark-blue;
+      }
+    }
+    input, .choices__inner {
+      font-family: "Plus Jakarta Sans";
+      font-size: 16px;
+      line-height: 20px;
+      color: $grey;
+      border-radius: 4px;
+      border: 1px solid $grey-border;
+      padding: 10px 13px !important;
+      background-color: transparent;
+      width: 100%;
+    }
+    .error-block {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateY(100%);
+      font-family: "Plus Jakarta Sans";
+      font-size: 12px;
+      line-height: 14px;
+      color: $error;
+      display: none;
+    }
+
+    &.error {
+      .error-block {
+        display: block;
+      }
+    }
+  }
+}
+
+.list-items {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  &__item {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 14px;
+    color: $grey-light;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+
+    &.active {
+      background-color: $dark-blue;
+      color: $white;
+      transition: opacity .3s;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}
+
+.list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.item-block {
+  width: calc(25% - 18px);
+  &__image {
+    position: relative;
+    margin-bottom: 8px;
+    picture, img {
+      width: 100%;
+    }
+  }
+  &__fav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    background-color: $white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &.active {
+      path {
+        fill: $black
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        path {
+          fill: $black
+        }
+      }
+    }
+  }
+  &__name {
+    font-family: "Plus Jakarta Sans";
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: $dark-blue;
+    margin-bottom: 3px;
+  }
+  &__group {
+    font-family: "Plus Jakarta Sans";
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: $dark-blue;
+    margin-bottom: 7px;
+  }
+  &__info {
+    margin-bottom: 11px;
+    p {
+      font-family: "Plus Jakarta Sans";
+      font-size: 14px;
+      line-height: 18px;
+      color: $grey-light;
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
+
+      span {
+        color: $dark-blue;
+      }
+    }
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+.btn {
+  font-family: "Plus Jakarta Sans";
+  font-weight: 500;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+  transition: opacity .3s;
+
+  &:hover {
+    opacity: .8;
+  }
+  &-green {
+    background-color: $dark-green;
+  }
+  &-blue {
+    background-color: $dark-blue;
+  }
+  &-add {
+    span {
+      position: relative;
+      padding-right: 26px;
+
+      &::before {
+        content: "";
+        display: block;
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-image: url(./../images/icons/ic-plus.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+}
+
+.choices {
+  &__list {
+    &, &--single {
+      padding: 0 !important;
+    }
+    &--dropdown {
+      .choices {
+        &__list {
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+          &::-webkit-scrollbar-track {
+            box-shadow: none;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(
+                            90deg,
+                            transparent 80%,
+                            $dark-blue 80%,
+                            $dark-blue 100%
+            );
+            outline: none;
+          }
+        }
+        &__item {
+          font-family: "Plus Jakarta Sans";
+          font-size: 16px;
+          line-height: 20px;
+          color: $grey;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &[data-type*=select-one] {
+    &::after {
+      border: none !important;
+      width: 24px !important;
+      height: 24px !important;
+      background-repeat: no-repeat;
+      background-position: center 10px;
+      background-image: url(./../images/icons/ic-arrow-down.svg);
+      transform: translateY(-50%);
+    }
+
+    &.is-open {
+      &::after {
+        margin-top: 0!important;
+        transform: translateY(-50%) rotate(-180deg);
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px){
+  .list-items {
+    gap: 16px;
+  }
+  .item-block {
+    width: calc(33% - 9px);
+  }
+}
+
+
+@media screen and (max-width: 640px){
+  .filter {
+    &__form {
+      & > * {
+        flex: none;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+    &__block {
+      &_artist, &_country {
+        width: 100%;
+      }
+
+      &_genre, &_decade {
+        width: calc(50% - 6px)
+      }
+    }
+  }
+  .list-items {
+    gap: 12px;
+  }
+  .item-block {
+    width: calc(50% - 6px);
+  }
+}
